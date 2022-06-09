@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductForm from "./Components/ProductForm";
 import ProductList from "./Components/ProductList";
 
@@ -7,7 +7,27 @@ function App() {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState(() => {
+    // get the product from localstorage
+    const savedProduct = localStorage.getItem("product");
+    // if there are product stored
+    if (savedProduct) {
+      // return the parsed JSON object back to a javascript object
+      return JSON.parse(savedProduct);
+      // otherwise
+    } else {
+      // return an empty array
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    saveLocalproduct();
+  }, [product]);
+  //save to local
+  const saveLocalproduct = () => {
+    localStorage.setItem("product", JSON.stringify(product));
+  };
 
   return (
     <div>
