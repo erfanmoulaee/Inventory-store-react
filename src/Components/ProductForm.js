@@ -30,10 +30,7 @@ const ProductForm = ({
     <div className="flex items-center justify-center mt-5 w-full min-w-[400px]">
       <form className="border-2 border-blue-700  w-96 p-6 rounded-xl">
         <div className="mb-6">
-          <label
-            for="product-title"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
             title
           </label>
           <input
@@ -45,10 +42,7 @@ const ProductForm = ({
           />
         </div>
         <div className="mb-6">
-          <label
-            for="product-quantity"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
+          <label className="block mb-2 text-sm font-medium text-gray-900">
             quantity
           </label>
           <input
@@ -60,10 +54,7 @@ const ProductForm = ({
           />
         </div>
         <div className="mb-6">
-          <label
-            for="product-category"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
+          <label className="block mb-2 text-sm font-medium text-gray-900">
             category
           </label>
           <input

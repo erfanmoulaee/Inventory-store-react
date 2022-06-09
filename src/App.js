@@ -8,6 +8,7 @@ function App() {
   const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
   const [product, setProduct] = useState([]);
+
   return (
     <div>
       <header className="w-full text-4xl  text-white bg-blue-700  h-20 flex justify-center items-center">
@@ -23,7 +24,7 @@ function App() {
         product={product}
         setProduct={setProduct}
       />
-      <ProductList product={product} />
+      <ProductList product={product} setProduct={setProduct} />
     </div>
   );
 }
