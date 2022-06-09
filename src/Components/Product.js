@@ -1,3 +1,4 @@
+import { BiTrash } from "react-icons/bi";
 const Product = ({ title, quantity, category, item, product, setProduct }) => {
   const removeHandler = () => {
     setProduct(product.filter((el) => el.id !== item.id));
@@ -11,8 +12,12 @@ const Product = ({ title, quantity, category, item, product, setProduct }) => {
   const decrementHandler = (id) => {
     const products = [...product];
     const selectedItem = product.find((p) => p.id === id);
-    selectedItem.text.quantity--;
-    setProduct(products);
+    if (selectedItem.text.quantity === 1) {
+      setProduct(product.filter((el) => el.id !== item.id));
+    } else {
+      selectedItem.text.quantity--;
+      setProduct(products);
+    }
   };
   return (
     <div className="flex items-center border-2 border-blue-600 px-6 py-3 rounded-xl justify-evenly  mb-4 w-auto ">
@@ -38,7 +43,7 @@ const Product = ({ title, quantity, category, item, product, setProduct }) => {
           onClick={() => decrementHandler(item.id)}
           className="border text-white  border-blue-600 rounded-md px-2 py-1 bg-blue-500 hover:bg-blue-600"
         >
-          -
+          {quantity > 1 ? "-" : <BiTrash />}
         </button>
         <button
           onClick={removeHandler}
